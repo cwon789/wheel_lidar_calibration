@@ -1,0 +1,27 @@
+wheel_lidar_calibration_node:
+  ros__parameters:
+    # Topic configuration
+    wheel_odom_topic: "/wheel/odom"
+    lidar_odom_topic: "/lidar/odom"
+    
+    # Synchronization parameters
+    max_time_diff: 0.02  # Maximum time difference for synchronization (seconds)
+    buffer_size: 1000    # Maximum number of messages to keep in buffer
+    
+    # Calibration parameters
+    min_pairs_for_calibration: 100  # Minimum synchronized pairs needed
+    max_iterations: 100             # Maximum optimization iterations
+    convergence_threshold: 1.0e-6   # Convergence threshold for optimization
+    
+    # Operation mode
+    auto_start: false  # Automatically start calibration when enough data collected
+    
+    # Output configuration
+    output_file: "calibration_result.txt"  # File to save calibration results
+    publish_tf: true                       # Publish result as static transform
+    
+    # Initial guess (optional)
+    # If you have a rough idea of the transform, you can set it here
+    # initial_transform:
+    #   translation: [0.0, 0.0, 0.0]     # x, y, z in meters
+    #   rotation: [0.0, 0.0, 0.0, 1.0]  # quaternion x, y, z, w
